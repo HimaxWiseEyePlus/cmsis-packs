@@ -1,11 +1,11 @@
-How to run WE2 example ?
+How to run WE2 Keil example ?
  Requirement:
   a. Keil MDK μVision (v5.38 is tested)
   b. pyOCD (v0.34.3 is tested)
   c. CMSIS-DAP Compatible Debugger
 
  1. Install Keil MDK μVision
- 2. Double click Himax.WE2_DFP.1.0.3.pack to install pack using Keil Pack Unzip
+ 2. Double click Himax.WE2_DFP.1.0.0.pack to install pack using Keil Pack Unzip
  3. Open Keil uVision menu bar select 'Project -> Manage -> Pack Installer'
  4. Switch to 'Devices' and 'Examples' tabpages
  5. Select Himax in Devices tabpage
@@ -32,3 +32,15 @@ How to run debugging in Keil ?
  2. select Option for Target 'we2_cm55m_s_app'
  3. select CMSIS-DAP ARMv8-M Debugger for Debug item
  4. Keil uVision menu bar select 'Debug -> Start/Stop Debug Session'
+
+How to install pyOCD_HX ?
+ Requirement:
+  a. pyhon3
+  b. python pip
+ 1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/tree/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+ 2. Open a command or shell prompt to install
+ $python3 -m pip uninstall pyocd
+ $python3 -m pip uninstall pyocd_hx
+ $python3 -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+ 3. Check pyOCD_HX
+ $pyocd --version (it should show 0.34.3.dev0+dirty)
