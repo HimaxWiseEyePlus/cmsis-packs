@@ -37,6 +37,7 @@ How to run WE2 VS Code Arm CMSIS csolution example ?
  Requirement:
   a. VS Code (v1.81.1 is tested)
   b. VS Code Extension
+     - Arm.cmsis-csolution (v1.5.2 is tested)
      - Arm.environment-manager (v1.0.5 is tested):
        toolchain for cmake, ninja, armclang, cmsis-toolbox and arm-none-eabi-gcc
   c. pyOCD_HX (see 'How to install pyOCD_HX ?')
@@ -48,6 +49,7 @@ How to run WE2 VS Code Arm CMSIS csolution example ?
     Open a command or shell prompt to install extension
     $code --install-extension marus25.cortex-debug
     $code --install-extension Arm.environment-manager
+    $code --install-extension Arm.cmsis-csolution
  3. Download cmsis-toolbox v2.0.0 and unzip it to D:\cmsis-toolbox
     https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases
  4. Install Himax.WE2_DFP.1.0.0.pack by using cmsis-toolbox cpackget
@@ -60,6 +62,7 @@ How to run WE2 VS Code Arm CMSIS csolution example ?
     $cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
     $cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
  5. Copy /Arm/Packs/Himax/WE2_DFP/1.0.0/WE2_Ex/WLCSP65/CMSIS/ARM/hello_world_tz to D:\cmsis_test\hello_world_tz
+    Remove read-only attribute from hello_world_tz folder
  6. VS Code menu bar select 'File -> Open Folder' open D:\cmsis_test\hello_world_tz
     In VS Code, right click vcpkg-configuration.json to show the pop-up menu 'Arm.environment-manager environment' and select activate environment
  7. VS Code menu bar select 'Terminal -> Run Task -> Build hello_world_tz ' to build hello_world_tz
