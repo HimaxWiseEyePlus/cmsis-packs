@@ -1,6 +1,6 @@
-How to run WE2 Keil example ?
+# How to run WE2 Keil example ?
  
- Requirement:
+ - Requirement:
   a. Keil MDK μVision (v5.38 is tested)
   b. pyOCD (v0.34.3 is tested, see 'How to install pyOCD ?') or pyOCD_HX (see 'How to install pyOCD_HX ?')
   c. CMSIS-DAP Compatible Debugger
@@ -24,8 +24,8 @@ How to run WE2 Keil example ?
  12. Run swd_progamming_flash.bat to progam WE2 external NOR flash via SWD interface using pyOCD CMSIS-DAP
  13. HW Reset WE2 board
 
-How to run debugging in Keil ?
- Requirement:
+# How to run debugging in Keil ?
+ - Requirement:
   a. Keil MDK μVision (v5.38 is tested)
   b. CMSIS-DAP Compatible Debugger
 
@@ -34,8 +34,8 @@ How to run debugging in Keil ?
  3. select CMSIS-DAP ARMv8-M Debugger for Debug item
  4. Keil uVision menu bar select 'Debug -> Start/Stop Debug Session'
 
-How to run WE2 VS Code Arm CMSIS csolution example ?
- Requirement:
+# How to run WE2 VS Code Arm CMSIS csolution example ?
+ - Requirement:
   a. VS Code (v1.81.1 is tested)
   b. VS Code Extension
      - Arm.cmsis-csolution (v1.5.2 is tested)
@@ -81,8 +81,8 @@ How to run WE2 VS Code Arm CMSIS csolution example ?
     progam WE2 external NOR flash via SWD interface using pyOCD CMSIS-DAP.
  12. HW Reset WE2 board
 
-How to run debugging in VS Code ?
- Requirement:
+# How to run debugging in VS Code ?
+ - Requirement:
   a. VS Code (v1.81.1 is tested)
   b. VS Code Extension
     - marus25.cortex-debug (v1.6.10 is tested)
@@ -100,8 +100,8 @@ How to run debugging in VS Code ?
  4. Press 'F5' to entery debug mode
     cortex-debug will be as gdb-client and pyocd will be local gdb-server.
 
-How to install pyOCD_HX ?
- Requirement:
+# How to install pyOCD_HX ?
+ - Requirement:
   a. pyhon 3.x (v3.10.5 is tested)
   b. python pip
 
@@ -116,8 +116,8 @@ How to install pyOCD_HX ?
    ```
    $pyocd --version (it should show 0.34.3.dev0+dirty)
    ```
-How to install pyOCD ?
- Requirement:
+# How to install pyOCD ?
+ - Requirement:
   a. pyhon 3.x (v3.10.5 is tested)
   b. python pip
 
