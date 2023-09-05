@@ -1,9 +1,9 @@
 # How to run WE2 Keil example ?
  
  - Requirement:
-  a. Keil MDK μVision (v5.38 is tested)
-  b. pyOCD (v0.34.3 is tested, see 'How to install pyOCD ?') or pyOCD_HX (see 'How to install pyOCD_HX ?')
-  c. CMSIS-DAP Compatible Debugger
+     - a. Keil MDK μVision (v5.38 is tested)
+     - b. pyOCD (v0.34.3 is tested, see 'How to install pyOCD ?') or pyOCD_HX (see 'How to install pyOCD_HX ?')
+     - c. CMSIS-DAP Compatible Debugger
 
  1. Install Keil MDK μVision
  2. Double click Himax.WE2_DFP.1.0.0.pack to install pack using Keil Pack Unzip
@@ -26,8 +26,8 @@
 
 # How to run debugging in Keil ?
  - Requirement:
-  a. Keil MDK μVision (v5.38 is tested)
-  b. CMSIS-DAP Compatible Debugger
+      - a. Keil MDK μVision (v5.38 is tested)
+      - b. CMSIS-DAP Compatible Debugger
 
  1. set we2_cm55m_s_app as active project
  2. select Option for Target 'we2_cm55m_s_app'
@@ -36,14 +36,14 @@
 
 # How to run WE2 VS Code Arm CMSIS csolution example ?
  - Requirement:
-  a. VS Code (v1.81.1 is tested)
-  b. VS Code Extension
-     - Arm.cmsis-csolution (v1.5.2 is tested)
-     - Arm.environment-manager (v1.0.5 is tested):
-         toolchain for cmake, ninja, armclang, cmsis-toolbox and arm-none-eabi-gcc
-  c. pyOCD_HX (see 'How to install pyOCD_HX ?')
-  d. cmsis-toolbox v2.0.0
-  e. CMSIS-DAP Compatible Debugger (https://pyocd.io/docs/debug_probes.html)
+      - a. VS Code (v1.81.1 is tested)
+      - b. VS Code Extension
+           - Arm.cmsis-csolution (v1.5.2 is tested)
+           - Arm.environment-manager (v1.0.5 is tested):
+               toolchain for cmake, ninja, armclang, cmsis-toolbox and arm-none-eabi-gcc
+      - c. pyOCD_HX (see 'How to install pyOCD_HX ?')
+      - d. cmsis-toolbox v2.0.0
+      - e. CMSIS-DAP Compatible Debugger (https://pyocd.io/docs/debug_probes.html)
 
  1. Install VS Code (https://code.visualstudio.com/download) 
  2. Install VS Code Extension
@@ -83,10 +83,10 @@
 
 # How to run debugging in VS Code ?
  - Requirement:
-  a. VS Code (v1.81.1 is tested)
-  b. VS Code Extension
-    - marus25.cortex-debug (v1.6.10 is tested)
-  c. pyOCD_HX (see 'How to install pyOCD_HX ?')
+      - a. VS Code (v1.81.1 is tested)
+      - b. VS Code Extension
+         - marus25.cortex-debug (v1.6.10 is tested)
+      - c. pyOCD_HX (see 'How to install pyOCD_HX ?')
 
  1. Modify vscode/launch.json for your system environment
       - svdFile
@@ -102,8 +102,8 @@
 
 # How to install pyOCD_HX ?
  - Requirement:
-  a. pyhon 3.x (v3.10.5 is tested)
-  b. python pip
+      - a. pyhon 3.x (v3.10.5 is tested)
+      - b. python pip
 
  1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
  2. Open a command or shell prompt to install
@@ -118,8 +118,8 @@
    ```
 # How to install pyOCD ?
  - Requirement:
-  a. pyhon 3.x (v3.10.5 is tested)
-  b. python pip
+      - a. pyhon 3.x (v3.10.5 is tested)
+      - b. python pip
 
  1. Open a command or shell prompt to install
    ```
