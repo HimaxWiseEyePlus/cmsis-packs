@@ -3,22 +3,17 @@
 <package schemaVersion="1.7.21" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <vendor>Himax</vendor>
   <name>WE2_DFP</name>
-  <description> WE2 Device Family Pack
-  </description>
-  <url>https://github.com/HimaxWiseEyePlus/cmsis-packs/tree/main/WE2_DFP</url>
-  <!-- <supportContact></supportContact> -->
-  <!-- <license>Licenses.txt</license> -->
-  <taxonomy>
-    <description Cclass="Device" Cgroup="Startup">Himax WE2 Startup</description>
-  </taxonomy>
+  <description>WE2 Device Family Pack</description>
+  <url>https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/</url>
   <releases>
-    <release version="1.0.0" date="2023-08-30">
+    <release version="1.0.0" date="2023-09-05">
     Initial Version
     </release>
   </releases>
   <keywords>
     <keyword>Himax</keyword>
     <keyword>WE2</keyword>
+    <keyword>WiseEye 2</keyword>
     <keyword>Device Family Pack</keyword>
   </keywords>
   <requirements>
@@ -37,9 +32,11 @@
       <debugInterface adapter="JTAG/SW" connector="10 pin Cortex debug (0.05 inch connector)"/>
     </board>
   </boards>
-
   <devices>
-    <family Dfamily="WE" Dvendor="Himax:178">
+    <family Dfamily="WE2 Series" Dvendor="Himax:178">
+      <!-- Device processor attributes -->
+      <processor Pname="core0" Dcore="Cortex-M55" DcoreVersion="r1p1" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Little-endian" Dclock="400000000"/>
+      <processor Pname="core1" Dcore="Cortex-M55" DcoreVersion="r1p1" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Little-endian" Dclock="100000000"/>
       <debugconfig default="swd" clock="3600000" swj="true" dormant="true"/>
       <!-- debug sequences -->
       <sequences>
@@ -52,7 +49,7 @@
             __var AIRCR_Addr = SCS_Addr + 0xD0C;
             __var DHCSR_Addr = SCS_Addr + 0xDF0;
             // Message(0, "write to AIRCR.SYSRESETREQ");
-
+      
             __errorcontrol = 0x1;     // Skip errors, write to AIRCR.SYSRESETREQ may not be able to finish with OK response
             // Execute SYSRESETREQ via AIRCR
             Write32(AIRCR_Addr, 0x05FA0004);
@@ -63,7 +60,14 @@
           <control while="(Read32(DHCSR_Addr) &amp; 0x02000000)" timeout="500000"/>
         </sequence>
       </sequences>
-      <description>WE devices</description>
+      <compile Pname="core0" Pdefine="CM55_BIG"/>
+      <compile Pname="core1" Pdefine="CM55_SMALL"/>
+      <compile header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+      <description>
+WiseEye 2 AI Processor (WE2) WE2 offers DRAM-less, ones-to-tens mill-watt AI processors to perform real time analytics in the endpoint itself.
+WE2 provides up to 50 GOPS with asymmetric multiprocessing architecture and DVFS power management.
+The processors are designed to enable battery-powered intelligence vision, voice, and vibration applications.
+      </description>
       <memory name="ITCM_NS"  access="rwn" start="0x00000000" size="0x00040000" startup="0" default="1" alias="ITCM_S"/>
       <memory name="DTCM_NS"  access="rwn" start="0x20000000" size="0x00040000" startup="0" default="1" alias="DTCM_S"/>
       <memory name="SRAM0_NS" access="rwn" start="0x24000000" size="0x00100000" startup="0" default="1" alias="SRAM0_S"/>
@@ -74,26 +78,21 @@
       <memory name="SRAM0_S"  access="rws" start="0x34000000" size="0x00100000" startup="0" default="1"/>
       <memory name="SRAM1_S"  access="rws" start="0x34100000" size="0x00100000" startup="0" default="1"/>
       <memory name="SRAM2_S"  access="rws" start="0x36000000" size="0x00060000" startup="0" default="1"/>
+      <!-- ADIv6 DAP -->
+      <debugport __dp="0">
+        <swd idcode="0x4C013477"/>
+      </debugport>
+      <debug Pname="core0" __apid="1" svd="SVD/WE2_S_NS.svd" defaultResetSequence="ResetSystem"/> 
+      <debug Pname="core1" __apid="2" svd="SVD/WE2_S_NS.svd" defaultResetSequence="ResetSystem"/>
+      <accessportV2 __apid="0" __dp="0" address="0x00004000"/>
+      <accessportV2 __apid="1" __dp="0" address="0x00006000"/>
+      <accessportV2 __apid="2" __dp="0" address="0x00008000"/>
       <device Dname="WE2">
-        <!-- Device processor attributes -->
-        <processor Pname="core0" Dcore="Cortex-M55" DcoreVersion="r1p1" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Little-endian" Dclock="400000000"/>
-        <processor Pname="core1" Dcore="Cortex-M55" DcoreVersion="r1p1" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Little-endian" Dclock="100000000"/>
-        <!-- ADIv6 DAP -->
-        <debugport __dp="0">
-          <swd idcode="0x4C013477"/>
-        </debugport>
-        <debug Pname="core0" __apid="1" svd="SVD/WE2_S_NS.svd" defaultResetSequence="ResetSystem"/> 
-        <debug Pname="core1" __apid="2" svd="SVD/WE2_S_NS.svd" defaultResetSequence="ResetSystem"/>
-        <accessportV2 __apid="0" __dp="0" address="0x00004000"/>
-        <accessportV2 __apid="1" __dp="0" address="0x00006000"/>
-        <accessportV2 __apid="2" __dp="0" address="0x00008000"/>
         <variant Dvariant="WE2_WLCSP65">
-          <compile Pname="core0" Pdefine="ARMCM55 CM55_BIG IC_PACKAGE_WLCSP65 " header="SDK/Device_Inc/WE2_ARMCM55.h"/>
-          <compile Pname="core1" Pdefine="ARMCM55 CM55_SMALL IC_PACKAGE_WLCSP65" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile define="ARMCM55 IC_PACKAGE_WLCSP65"/>
         </variant>
         <variant Dvariant="WE2_LQFP128">
-          <compile Pname="core0" Pdefine="ARMCM55 CM55_BIG IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
-          <compile Pname="core1" Pdefine="ARMCM55 CM55_SMALL IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile define="ARMCM55 IC_PACKAGE_LQFP128"/>
         </variant>
       </device>
     </family>
@@ -106,7 +105,7 @@
       <require Tcompiler="GCC"/>
     </condition>
     <condition id="(WE2.CMSIS)">
-      <require Dvendor="Himax:178" Dfamily="WE" Dname="WE2_*"/>
+      <require Dvendor="Himax:178" Dfamily="WE2 Series" Dname="WE2_*"/>
       <require Cclass="CMSIS" Cgroup="CORE" Cversion="5.6.0"/>
     </condition>
     <condition id="(CMSIS.NN Lib)">
@@ -127,12 +126,12 @@
     </condition>
     <condition id="(WE2.CMSIS.core0)">
       <require condition="(WE2.CMSIS)"/>
-      <require Dvendor="Himax:178" Dfamily="WE" Dname="WE2_*" Pname="core0"/>
+      <require Dvendor="Himax:178" Dfamily="WE2 Series" Dname="WE2_*" Pname="core0"/>
     </condition>
     <condition id="(WE2.CMSIS.core1)">
       <require condition="(WE2.CMSIS)"/>
       <require Dname="WE2_*" Pname="core1"/>
-      <require Dvendor="Himax:178" Dfamily="WE" Dname="WE2_*" Pname="core1"/>
+      <require Dvendor="Himax:178" Dfamily="WE2 Series" DsubFamily="WE2 Series" Dname="WE2_*" Pname="core1"/>
     </condition>
     <condition id="(Device.Himax RTE.Non-secure)">
       <require Cclass="Device" Cgroup="Himax RTE" Cvariant="Non-secure"/>
@@ -218,7 +217,7 @@
       <deny Cclass="HimaxPack" Cgroup="TFMv170 Test" Csub="s_ns_tests"/>
     </condition>
     <condition id="(WE2.core0)">
-      <require Dvendor="Himax:178" Dfamily="WE" Dname="WE2_*" Pname="core0"/>
+      <require Dvendor="Himax:178" Dfamily="WE2 Series" Dname="WE2_*" Pname="core0"/>
     </condition>
     <condition id="(HimaxPack.TFMv170.tfm_domain.domain_s)">
       <require Cclass="HimaxPack" Cgroup="TFMv170" Csub="tfm_domain" Cvariant="domain_s"/>
