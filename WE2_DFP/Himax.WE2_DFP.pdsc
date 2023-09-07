@@ -86,8 +86,8 @@ The processors are designed to enable battery-powered intelligence vision, voice
       <accessportV2 __apid="2" __dp="0" address="0x00008000"/>
       <device Dname="WE2">
         <variant Dvariant="WE2_WLCSP65">
-          <compile Pname="core0" Pdefine="CM55_BIG" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
-          <compile Pname="core1" Pdefine="CM55_SMALL" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile Pname="core0" Pdefine="CM55_BIG" define="ARMCM55 IC_PACKAGE_WLCSP65" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile Pname="core1" Pdefine="CM55_SMALL" define="ARMCM55 IC_PACKAGE_WLCSP65" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
         </variant>
         <variant Dvariant="WE2_LQFP128">
           <compile Pname="core0" Pdefine="CM55_BIG" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
