@@ -49,9 +49,9 @@
  2. Install VS Code Extension
     Open a command or shell prompt to install extension
      ```
-     $code --install-extension marus25.cortex-debug
-     $code --install-extension Arm.environment-manager
-     $code --install-extension Arm.cmsis-csolution
+     code --install-extension marus25.cortex-debug
+     code --install-extension Arm.environment-manager
+     code --install-extension Arm.cmsis-csolution
      ```
  3. Download cmsis-toolbox v2.0.0 and unzip it to D:\cmsis-toolbox
     https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases
@@ -59,12 +59,13 @@
     Pack default location is ${HOME}/.cache/arm/packs for Linux and ${LOCALAPPDATA}/Arm/Packs for Windows
     Open a command or shell prompt
      ```
-     $cd D:\cmsis-toolbox\bin
-     $cpackget add https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
-     $cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
-     $cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
-     $cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
-     $cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
+     cd D:\cmsis-toolbox\bin
+     cpackget add https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+     cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
+     cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
+     cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
+     cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
+     cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
      ```
  5. Copy /Arm/Packs/Himax/WE2_DFP/1.0.0/WE2_Ex/WLCSP65/CMSIS/ARM/hello_world_tz to D:\cmsis_test\hello_world_tz
     Remove read-only attribute from hello_world_tz folder
@@ -108,13 +109,13 @@
  1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
  2. Open a command or shell prompt to install
    ```
-   $python -m pip uninstall pyocd
-   $python -m pip uninstall pyocd_hx
-   $python -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+   python -m pip uninstall pyocd
+   python -m pip uninstall pyocd_hx
+   python -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
    ```
  3. Check pyOCD_HX
    ```
-   $pyocd --version (it should show 0.34.3.dev0+dirty)
+   pyocd --version (it should show 0.34.3.dev0+dirty)
    ```
 # How to install pyOCD ?
  - Requirement:
@@ -123,11 +124,11 @@
 
  1. Open a command or shell prompt to install
    ```
-   $python3 -m pip uninstall pyocd
-   $python3 -m pip uninstall pyocd_hx
-   $python3 -m pip install pyocd
+   python3 -m pip uninstall pyocd
+   python3 -m pip uninstall pyocd_hx
+   python3 -m pip install pyocd
    ``` 
  2. Check pyOCD
     ```
-    $pyocd --version (it should show 0.34.3 or higher version)
+    pyocd --version (it should show 0.34.3 or higher version)
     ```

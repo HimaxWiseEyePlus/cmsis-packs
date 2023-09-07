@@ -6,7 +6,7 @@
   <description>WE2 Device Family Pack</description>
   <url>https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/</url>
   <releases>
-    <release version="1.0.0" date="2023-09-05">
+    <release version="1.0.0" date="2023-09-07">
     Initial Version
     </release>
   </releases>
@@ -60,9 +60,6 @@
           <control while="(Read32(DHCSR_Addr) &amp; 0x02000000)" timeout="500000"/>
         </sequence>
       </sequences>
-      <compile Pname="core0" Pdefine="CM55_BIG"/>
-      <compile Pname="core1" Pdefine="CM55_SMALL"/>
-      <compile header="SDK/Device_Inc/WE2_ARMCM55.h"/>
       <description>
 WiseEye 2 AI Processor (WE2) WE2 offers DRAM-less, ones-to-tens mill-watt AI processors to perform real time analytics in the endpoint itself.
 WE2 provides up to 50 GOPS with asymmetric multiprocessing architecture and DVFS power management.
@@ -89,10 +86,12 @@ The processors are designed to enable battery-powered intelligence vision, voice
       <accessportV2 __apid="2" __dp="0" address="0x00008000"/>
       <device Dname="WE2">
         <variant Dvariant="WE2_WLCSP65">
-          <compile define="ARMCM55 IC_PACKAGE_WLCSP65"/>
+          <compile Pname="core0" Pdefine="CM55_BIG" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile Pname="core1" Pdefine="CM55_SMALL" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
         </variant>
         <variant Dvariant="WE2_LQFP128">
-          <compile define="ARMCM55 IC_PACKAGE_LQFP128"/>
+          <compile Pname="core0" Pdefine="CM55_BIG" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
+          <compile Pname="core1" Pdefine="CM55_SMALL" define="ARMCM55 IC_PACKAGE_LQFP128" header="SDK/Device_Inc/WE2_ARMCM55.h"/>
         </variant>
       </device>
     </family>
