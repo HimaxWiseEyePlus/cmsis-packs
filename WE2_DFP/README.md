@@ -53,34 +53,48 @@
      code --install-extension Arm.environment-manager
      code --install-extension Arm.cmsis-csolution
      ```
- 3. Download cmsis-toolbox v2.0.0 and unzip it to D:\cmsis-toolbox
+ 3. Download cmsis-toolbox v2.0.0 and unzip it to D:\cmsis-toolbox or /home/cmsis-toolbox-linux-amd64/
     https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases
  4. Install Himax.WE2_DFP.1.0.0.pack by using cmsis-toolbox cpackget
     Pack default location is ${HOME}/.cache/arm/packs for Linux and ${LOCALAPPDATA}/Arm/Packs for Windows
     Open a command or shell prompt
-     ```
-     cd D:\cmsis-toolbox\bin
-     cpackget add https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
-     cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
-     cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
-     cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
-     cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
-     cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
-     ```
- 5. Copy /Arm/Packs/Himax/WE2_DFP/1.0.0/WE2_Ex/WLCSP65/CMSIS/ARM/hello_world_tz to D:\cmsis_test\hello_world_tz
+     - Windows 
+       - Pack default location is ${LOCALAPPDATA}/Arm/Packs
+        ```
+        cd D:\cmsis-toolbox\bin
+        cpackget add https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+        cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
+        cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
+        cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
+        cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
+        cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
+        ```
+     - Linux 
+       - Pack default location is ${HOME}/.cache/arm/packs
+        ```
+        cd /home/cmsis-toolbox-linux-amd64/bin
+        ./cpackget add https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+        ./cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
+        ./cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
+        ./cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
+        ./cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
+        ./cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
+        ```
+       
+ 6. Copy /Arm/Packs/Himax/WE2_DFP/1.0.0/WE2_Ex/WLCSP65/CMSIS/ARM/hello_world_tz to D:\cmsis_test\hello_world_tz
     Remove read-only attribute from hello_world_tz folder
- 6. VS Code menu bar select 'File -> Open Folder' open D:\cmsis_test\hello_world_tz
+ 7. VS Code menu bar select 'File -> Open Folder' open D:\cmsis_test\hello_world_tz
     In VS Code, right click vcpkg-configuration.json to show the pop-up menu 'Arm.environment-manager environment' and select activate environment
- 7. VS Code menu bar select 'Terminal -> Run Task -> Build hello_world_tz ' to build hello_world_tz
+ 8. VS Code menu bar select 'Terminal -> Run Task -> Build hello_world_tz ' to build hello_world_tz
      The two elf files, we2_cm55m_ns_app.elf and we2_cm55m_s_app.elf, will be generated.
- 8. Download image_gen tool https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/tool.7z
- 9. Unzip tool to D:\cmsis_test\hello_world_tz
- 10. VS Code menu bar select 'Terminal -> Run Task -> tool' to and select 'gen_image_mdk' to 
+ 9. Download image_gen tool https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/tool.7z
+ 10. Unzip tool to D:\cmsis_test\hello_world_tz
+ 11. VS Code menu bar select 'Terminal -> Run Task -> tool' to and select 'gen_image_mdk' to 
     merage elf files and WE2 bootloader.
     The complete image (output.img) will be generated in D:\cmsis_test\hello_world_tz\tool\we2_image_gen_local_exe_release_177231\output\
- 11. VS Code menu bar select 'Terminal -> Run Task -> tool' to and select 'swd_progamming_flash' to 
+ 12. VS Code menu bar select 'Terminal -> Run Task -> tool' to and select 'swd_progamming_flash' to 
     progam WE2 external NOR flash via SWD interface using pyOCD CMSIS-DAP.
- 12. HW Reset WE2 board
+ 13. HW Reset WE2 board
 
 # How to run debugging in VS Code ?
  - Requirement:
