@@ -101,8 +101,8 @@
  4. Press 'F5' to entery debug mode
     cortex-debug will be as gdb-client and pyocd will be local gdb-server.
  5. Troubleshooting for ubuntu linux
-   "error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory"
       ```
+      # "error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory"
       sudo apt-get install libncurses5
 
       # "error while loading shared libraries: libncursesw.so.5: cannot open shared object file: No such file or directory"
