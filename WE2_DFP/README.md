@@ -66,7 +66,7 @@
         cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
         cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
         cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
-        cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
+        cpackget rm Himax.WE2_DFP.1.0.0.pack # (for reinstall)
         cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
         ```
      - Linux 
@@ -77,7 +77,7 @@
         ./cpackget add https://www.keil.com/pack/ARM.CMSIS-FreeRTOS.10.5.1.pack
         ./cpackget add https://www.keil.com/pack/ARM.CMSIS-NN.4.1.0.pack
         ./cpackget add https://www.keil.com/pack/ARM.CMSIS-DSP.1.11.0.pack
-        ./cpackget rm Himax.WE2_DFP.1.0.0.pack (for reinstall)
+        ./cpackget rm Himax.WE2_DFP.1.0.0.pack # (for reinstall)
         ./cpackget add https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/Himax.WE2_DFP.1.0.0.pack
         ```
        
