@@ -6,7 +6,7 @@
   <description>WE2 Device Family Pack</description>
   <url>https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/</url>
   <releases>
-    <release version="1.0.0" date="2023-09-11">
+    <release version="1.0.0" date="2023-09-13">
     Initial Version
     </release>
   </releases>

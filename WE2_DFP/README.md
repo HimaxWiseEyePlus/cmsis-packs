@@ -100,35 +100,78 @@
  3. Select 'cortex-debug we2_cm55m_s_app Launch'VS Code in 'RUN AND DEBUG' Item.
  4. Press 'F5' to entery debug mode
     cortex-debug will be as gdb-client and pyocd will be local gdb-server.
+ 5. Troubleshooting for ubuntu linux
+   "error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory"
+      ```
+      sudo apt-get install libncurses5
 
+      # "error while loading shared libraries: libncursesw.so.5: cannot open shared object file: No such file or directory"
+      sudo apt-get install libncursesw5
+      sudo apt-get install libtinfo5
+      ```
 # How to install pyOCD_HX ?
  - Requirement:
       - a. pyhon 3.x (v3.10.5 is tested)
       - b. python pip
-
- 1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
- 2. Open a command or shell prompt to install
-   ```
-   python -m pip uninstall pyocd
-   python -m pip uninstall pyocd_hx
-   python -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
-   ```
- 3. Check pyOCD_HX
-   ```
-   pyocd --version (it should show 0.34.3.dev0+dirty)
-   ```
+ - Windows
+   1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+   2. Open a command or shell prompt to install
+      ```
+      python -m pip uninstall pyocd
+      python -m pip uninstall pyocd_hx
+      python -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+      ```
+   3. Check pyOCD_HX (it should show 0.34.3.dev0+dirty)
+      ```
+      pyocd --version 
+      ```
+ - Ubuntu
+   1. Download pyOCD_HX https://github.com/HimaxWiseEyePlus/cmsis-packs/raw/main/WE2_DFP/pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+   2. Open a command or shell prompt to install
+      ```
+      sudo apt-get update
+      sudo apt-get install python3-pip
+      python3 -m pip uninstall pyocd
+      python3 -m pip uninstall pyocd_hx
+      python3 -m pip install pyocd_hx-0.34.3.dev0+dirty-py3-none-any.whl
+      ```
+   3. Check pyOCD_HX (it should show 0.34.3.dev0+dirty)
+      ```
+      pyocd --version 
+      ```
 # How to install pyOCD ?
  - Requirement:
       - a. pyhon 3.x (v3.10.5 is tested)
       - b. python pip
-
- 1. Open a command or shell prompt to install
-   ```
-   python3 -m pip uninstall pyocd
-   python3 -m pip uninstall pyocd_hx
-   python3 -m pip install pyocd
-   ``` 
- 2. Check pyOCD
-    ```
-    pyocd --version (it should show 0.34.3 or higher version)
-    ```
+ - Windows
+   1. Open a command or shell prompt to install
+      ```
+      python3 -m pip uninstall pyocd
+      python3 -m pip uninstall pyocd_hx
+      python3 -m pip install pyocd
+      ``` 
+   2. Check pyOCD (it should show 0.34.3 or higher version)
+      ```
+      pyocd --version 
+      ```
+ - Ubuntu
+   1. Open a command or shell prompt to install
+      ```
+      sudo apt-get update
+      sudo apt-get install python3-pip
+      python3 -m pip uninstall pyocd
+      python3 -m pip uninstall pyocd_hx
+      python3 -m pip install pyocd
+      ```
+   2. Check pyOCD (it should show 0.34.3 or higher version)
+      ```
+      pyocd --version 
+      ```
+   3. Add udev rules into /etc/udev/rules.d
+      ```
+      git clone https://github.com/pyocd/pyOCD.git
+      cd pyocd/udev
+      sudo cp *.rules /etc/udev/rules.d
+      sudo udevadm control --reload
+      sudo udevadm trigger
+      ```
